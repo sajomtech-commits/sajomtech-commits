@@ -1,0 +1,35 @@
+═ SUPABASE CONFIG ═══════════════════════════════════════════
+
+SUPABASE_URL=http://supabase.sagetech.vip
+SUPABASE_SERVICE_ROLE_KEY=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc3ODc4NTIwMCwiZXhwIjo0OTM0NDU4ODAwLCJyb2xlIjoic2VydmljZV9yb2xlIn0.iDaEfe4pHMzkeff9Cu8c-YjwDAes5NY75oPD1oVmuIk
+SUPABASE_ANON_KEY=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc3ODc4NTIwMCwiZXhwIjo0OTM0NDU4ODAwLCJyb2xlIjoiYW5vbiJ9.dSLctp2RLKsNnrcsxhFafEEeyCSxVHPDpntVPoaJXrA
+
+══ IMPORTANT ══════════════════════════════════════════════
+L'API REST fonctionne UNIQUEMENT via HTTP (port 80)
+Les endpoints /api/* et /auth/* sont bloqués par Cloudflare
+Le backend doit utiliser un User-Agent navigateur (pas Python-urllib)
+La connexion PostgreSQL directe est bloquée par le firewall
+═══
+
+CONNEXION DIRECTE (bloquée) :
+  postgresql://postgres:f7k3ZAbVkXUKs0jKjtMNUWeD9F2OkVx9@176.181.28.95:5432/postgres
+
+SERVICE_USER_ADMIN (Coolify ?)
+  TMeydmcst4wTgWLB
+SERVICE_PASSWORD_ADMIN  
+  jaJQT2waZExjtIl0OvLNCyObvcSrg5eX
+SERVICE_PASSWORD_POSTGRES
+  f7k3ZAbVkXUKs0jKjtMNUWeD9F2OkVx9
+
+TABLE EXISTANTE (inchangée) :
+  ventes — contient les données de revente (37 enregistrements)
+
+TABLES À CRÉER POUR LE TRADING :
+  1. mt5_accounts    2. trades    3. sync_log
+  4. scan_config     5. dashboard_metrics  6. trade_types
+
+Pour créer les tables, exécuter le SQL dans Supabase Studio :
+  1. schema.sql    (CREATE TABLE IF NOT EXISTS)
+  2. indexes.sql   (CREATE INDEX IF NOT EXISTS)
+  3. views.sql     (CREATE OR REPLACE VIEW)
+  4. rls.sql       (RLS policies — optionnel)
