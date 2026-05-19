@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>MT5 Trade Dashboard</title>
+<title>Tableau de Bord MT5</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 
 <header class="header">
     <div class="inner">
-        <div class="logo"><span>◆</span> MT5 Trade Dashboard</div>
+        <div class="logo"><span>◆</span> Tableau de Bord MT5</div>
         <div class="hright">
             <span id="cur-time"></span>
             <span><span class="dot"></span> Live</span>
@@ -22,13 +22,13 @@
 </header>
 
 <nav class="tabs">
-    <button class="tab on" data-t="overview">Overview</button>
-    <button class="tab" data-t="positions">Open Positions</button>
-    <button class="tab" data-t="history">Trade History</button>
-    <button class="tab" data-t="accounts">Accounts</button>
-    <button class="tab" data-t="daily">Daily PnL</button>
-    <button class="tab" data-t="stats">By Symbol</button>
-    <button class="tab" data-t="sync">Sync Status</button>
+    <button class="tab on" data-t="overview">Vue d'Ensemble</button>
+    <button class="tab" data-t="positions">Positions</button>
+    <button class="tab" data-t="history">Historique</button>
+    <button class="tab" data-t="accounts">Comptes</button>
+    <button class="tab" data-t="daily">PnL Quotidien</button>
+    <button class="tab" data-t="stats">Par Symbole</button>
+    <button class="tab" data-t="sync">Synchro</button>
 </nav>
 
 <main class="main">
@@ -36,44 +36,44 @@
 <!-- ═══ Overview ═══ -->
 <section id="p-overview" class="pane on">
     <div class="mg">
-        <div class="mc"><div class="ml">Active Accounts</div><div class="mv" id="m-active">—</div></div>
-        <div class="mc"><div class="ml">Open Positions</div><div class="mv" id="m-open">—</div></div>
+        <div class="mc"><div class="ml">Comptes Actifs</div><div class="mv" id="m-active">—</div></div>
+        <div class="mc"><div class="ml">Positions Ouvertes</div><div class="mv" id="m-open">—</div></div>
         <div class="mc"><div class="ml">Total Trades</div><div class="mv" id="m-total">—</div></div>
-        <div class="mc"><div class="ml">Total P&L</div><div class="mv" id="m-pnl">—</div></div>
-        <div class="mc"><div class="ml">Win Rate</div><div class="mv" id="m-winrate">—</div></div>
-        <div class="mc"><div class="ml">Best Trade</div><div class="mv" id="m-best">—</div></div>
-        <div class="mc"><div class="ml">Worst Trade</div><div class="mv" id="m-worst">—</div></div>
-        <div class="mc"><div class="ml">Avg Win</div><div class="mv" id="m-avgw">—</div></div>
-        <div class="mc"><div class="ml">Avg Loss</div><div class="mv" id="m-avgl">—</div></div>
-        <div class="mc"><div class="ml">Floating P&L</div><div class="mv" id="m-dd">—</div></div>
+        <div class="mc"><div class="ml">P&L Total</div><div class="mv" id="m-pnl">—</div></div>
+        <div class="mc"><div class="ml">Taux Réussite</div><div class="mv" id="m-winrate">—</div></div>
+        <div class="mc"><div class="ml">Meilleur Trade</div><div class="mv" id="m-best">—</div></div>
+        <div class="mc"><div class="ml">Pire Trade</div><div class="mv" id="m-worst">—</div></div>
+        <div class="mc"><div class="ml">Gain Moyen</div><div class="mv" id="m-avgw">—</div></div>
+        <div class="mc"><div class="ml">Perte Moyenne</div><div class="mv" id="m-avgl">—</div></div>
+        <div class="mc"><div class="ml">P&L Flottant</div><div class="mv" id="m-dd">—</div></div>
     </div>
 </section>
 
 <!-- ═══ Open Positions ═══ -->
 <section id="p-positions" class="pane">
     <div class="fb">
-        <label>Account <select data-f="account_id" id="f-account"><option value="">All</option></select></label>
-        <label>Symbol <select data-f="symbol" id="f-symbol"><option value="">All</option></select></label>
-        <label>Type <select data-f="type" id="f-type"><option value="">All</option></select></label>
-        <label>Search <input data-f="search" placeholder="ticket, symbol, comment"></label>
-        <button class="bte" data-reset>Reset</button>
+        <label>Compte <select data-f="account_id" id="f-account"><option value="">Tous</option></select></label>
+        <label>Symbole <select data-f="symbol" id="f-symbol"><option value="">Tous</option></select></label>
+        <label>Type <select data-f="type" id="f-type"><option value="">Tous</option></select></label>
+        <label>Recherche <input data-f="search" placeholder="ticket, symbole, commentaire"></label>
+        <button class="bte" data-reset>Réinitialiser</button>
     </div>
     <div class="tc">
-        <div class="th"><h3>Open Positions</h3><div><span class="bc" id="pos-count">0</span> <button class="bte" data-export="pos" data-filename="open_positions">CSV</button></div></div>
+        <div class="th"><h3>Positions Ouvertes</h3><div><span class="bc" id="pos-count">0</span> <button class="bte" data-export="pos" data-filename="open_positions">CSV</button></div></div>
         <div class="ts">
             <table>
                 <thead><tr>
                     <th data-col="0" data-table="pos">Ticket</th>
-                    <th data-col="1" data-table="pos">Account</th>
-                    <th data-col="2" data-table="pos">Symbol</th>
+                    <th data-col="1" data-table="pos">Compte</th>
+                    <th data-col="2" data-table="pos">Symbole</th>
                     <th data-col="3" data-table="pos">Type</th>
                     <th data-col="4" data-table="pos" class="n">Volume</th>
-                    <th data-col="5" data-table="pos" class="n">Open Price</th>
-                    <th data-col="6" data-table="pos">Open Time</th>
+                    <th data-col="5" data-table="pos" class="n">Prix Ouv.</th>
+                    <th data-col="6" data-table="pos">Ouverture</th>
                     <th data-col="7" data-table="pos" class="n">SL</th>
                     <th data-col="8" data-table="pos" class="n">TP</th>
                     <th data-col="9" data-table="pos" class="n">Profit</th>
-                    <th data-col="10" data-table="pos">Comment</th>
+                    <th data-col="10" data-table="pos">Commentaire</th>
                 </tr></thead>
                 <tbody id="pos-body"></tbody>
             </table>
@@ -84,32 +84,32 @@
 <!-- ═══ Trade History ═══ -->
 <section id="p-history" class="pane">
     <div class="fb">
-        <label>Account <select data-f="account_id"><option value="">All</option></select></label>
-        <label>Symbol <select data-f="symbol"><option value="">All</option></select></label>
-        <label>Type <select data-f="type"><option value="">All</option></select></label>
-        <label>Status <select data-f="is_open" id="f-open"><option value="">All</option><option value="true">Open</option><option value="false">Closed</option></select></label>
-        <label>From <input type="date" data-f="date_from"></label>
-        <label>To <input type="date" data-f="date_to"></label>
-        <label>Magic <input data-f="magic" placeholder="magic #"></label>
-        <label>Search <input data-f="search" placeholder="ticket, symbol, comment"></label>
-        <button class="bte" data-reset>Reset</button>
+        <label>Compte <select data-f="account_id"><option value="">Tous</option></select></label>
+        <label>Symbole <select data-f="symbol"><option value="">Tous</option></select></label>
+        <label>Type <select data-f="type"><option value="">Tous</option></select></label>
+        <label>Statut <select data-f="is_open" id="f-open"><option value="">Tous</option><option value="true">Ouvert</option><option value="false">Fermé</option></select></label>
+        <label>Du <input type="date" data-f="date_from"></label>
+        <label>Au <input type="date" data-f="date_to"></label>
+        <label>Magic <input data-f="magic" placeholder="magic n°"></label>
+        <label>Recherche <input data-f="search" placeholder="ticket, symbole, commentaire"></label>
+        <button class="bte" data-reset>Réinitialiser</button>
     </div>
     <div class="tc">
-        <div class="th"><h3>Trade History</h3><div><span class="bc" id="hist-count">0</span> <span class="bc" id="hist-total"></span> <button class="bte" data-export="hist" data-filename="trade_history">CSV</button></div></div>
+        <div class="th"><h3>Historique des Trades</h3><div><span class="bc" id="hist-count">0</span> <span class="bc" id="hist-total"></span> <button class="bte" data-export="hist" data-filename="trade_history">CSV</button></div></div>
         <div class="ts">
             <table>
                 <thead><tr>
                     <th data-col="0" data-table="hist">Ticket</th>
-                    <th data-col="1" data-table="hist">Account</th>
-                    <th data-col="2" data-table="hist">Symbol</th>
+                    <th data-col="1" data-table="hist">Compte</th>
+                    <th data-col="2" data-table="hist">Symbole</th>
                     <th data-col="3" data-table="hist">Type</th>
                     <th data-col="4" data-table="hist" class="n">Volume</th>
-                    <th data-col="5" data-table="hist" class="n">Open Price</th>
-                    <th data-col="6" data-table="hist" class="n">Close Price</th>
-                    <th data-col="7" data-table="hist">Open Time</th>
-                    <th data-col="8" data-table="hist">Close Time</th>
+                    <th data-col="5" data-table="hist" class="n">Prix Ouv.</th>
+                    <th data-col="6" data-table="hist" class="n">Prix Clôt.</th>
+                    <th data-col="7" data-table="hist">Ouverture</th>
+                    <th data-col="8" data-table="hist">Clôture</th>
                     <th data-col="9" data-table="hist" class="n">Profit</th>
-                    <th data-col="10" data-table="hist">Comment</th>
+                    <th data-col="10" data-table="hist">Commentaire</th>
                 </tr></thead>
                 <tbody id="hist-body"></tbody>
             </table>
@@ -120,19 +120,19 @@
 <!-- ═══ Accounts ═══ -->
 <section id="p-accounts" class="pane">
     <div class="tc">
-        <div class="th"><h3>MT5 Accounts</h3><button class="bte" data-export="accounts" data-filename="accounts">CSV</button></div>
+        <div class="th"><h3>Comptes MT5</h3><button class="bte" data-export="accounts" data-filename="accounts">CSV</button></div>
         <div class="ts">
             <table>
                 <thead><tr>
                     <th data-col="0" data-table="accounts">Instance</th>
                     <th data-col="1" data-table="accounts">Login</th>
-                    <th data-col="2" data-table="accounts">Server</th>
-                    <th data-col="3" data-table="accounts" class="n">Balance</th>
-                    <th data-col="4" data-table="accounts" class="n">Equity</th>
-                    <th data-col="5" data-table="accounts" class="n">Margin</th>
-                    <th data-col="6" data-table="accounts" class="n">Free Margin</th>
-                    <th data-col="7" data-table="accounts" class="n">Leverage</th>
-                    <th data-col="8" data-table="accounts">Last Sync</th>
+                    <th data-col="2" data-table="accounts">Serveur</th>
+                    <th data-col="3" data-table="accounts" class="n">Solde</th>
+                    <th data-col="4" data-table="accounts" class="n">Capitaux</th>
+                    <th data-col="5" data-table="accounts" class="n">Marge</th>
+                    <th data-col="6" data-table="accounts" class="n">Marge Libre</th>
+                    <th data-col="7" data-table="accounts" class="n">Levier</th>
+                    <th data-col="8" data-table="accounts">Dernière Synchro</th>
                 </tr></thead>
                 <tbody id="accounts-body"></tbody>
             </table>
@@ -143,12 +143,12 @@
 <!-- ═══ Daily PnL ═══ -->
 <section id="p-daily" class="pane">
     <div class="tc">
-        <div class="th"><h3>Daily PnL — Global</h3><button class="bte" data-export="dpg" data-filename="daily_pnl_global">CSV</button></div>
+        <div class="th"><h3>PnL Quotidien — Global</h3><button class="bte" data-export="dpg" data-filename="daily_pnl_global">CSV</button></div>
         <div class="ts">
             <table>
                 <thead><tr>
                     <th data-col="0" data-table="dpg">Date</th>
-                    <th data-col="1" data-table="dpg" class="n">Accounts</th>
+                    <th data-col="1" data-table="dpg" class="n">Comptes</th>
                     <th data-col="2" data-table="dpg" class="n">Trades</th>
                     <th data-col="3" data-table="dpg" class="n">PnL</th>
                     <th data-col="4" data-table="dpg" class="n">Swap</th>
@@ -159,12 +159,12 @@
         </div>
     </div>
     <div class="tc">
-        <div class="th"><h3>Daily PnL — By Account</h3><button class="bte" data-export="dp" data-filename="daily_pnl_accounts">CSV</button></div>
+        <div class="th"><h3>PnL Quotidien — Par Compte</h3><button class="bte" data-export="dp" data-filename="daily_pnl_accounts">CSV</button></div>
         <div class="ts">
             <table>
                 <thead><tr>
                     <th data-col="0" data-table="dp">Date</th>
-                    <th data-col="1" data-table="dp">Account</th>
+                    <th data-col="1" data-table="dp">Compte</th>
                     <th data-col="2" data-table="dp" class="n">Trades</th>
                     <th data-col="3" data-table="dp" class="n">PnL</th>
                     <th data-col="4" data-table="dp" class="n">Swap</th>
@@ -179,20 +179,20 @@
 <!-- ═══ By Symbol ═══ -->
 <section id="p-stats" class="pane">
     <div class="tc">
-        <div class="th"><h3>Trade Stats by Symbol</h3><button class="bte" data-export="stats" data-filename="stats_symbol">CSV</button></div>
+        <div class="th"><h3>Statistiques par Symbole</h3><button class="bte" data-export="stats" data-filename="stats_symbol">CSV</button></div>
         <div class="ts">
             <table>
                 <thead><tr>
-                    <th data-col="0" data-table="stats">Account</th>
-                    <th data-col="1" data-table="stats">Symbol</th>
+                    <th data-col="0" data-table="stats">Compte</th>
+                    <th data-col="1" data-table="stats">Symbole</th>
                     <th data-col="2" data-table="stats" class="n">Total</th>
-                    <th data-col="3" data-table="stats" class="n">Wins</th>
-                    <th data-col="4" data-table="stats" class="n">Losses</th>
-                    <th data-col="5" data-table="stats" class="n">Win Rate</th>
+                    <th data-col="3" data-table="stats" class="n">Gains</th>
+                    <th data-col="4" data-table="stats" class="n">Pertes</th>
+                    <th data-col="5" data-table="stats" class="n">% Réussite</th>
                     <th data-col="6" data-table="stats" class="n">PnL</th>
-                    <th data-col="7" data-table="stats" class="n">Avg PnL</th>
-                    <th data-col="8" data-table="stats" class="n">Best</th>
-                    <th data-col="9" data-table="stats" class="n">Worst</th>
+                    <th data-col="7" data-table="stats" class="n">PnL Moyen</th>
+                    <th data-col="8" data-table="stats" class="n">Meilleur</th>
+                    <th data-col="9" data-table="stats" class="n">Pire</th>
                 </tr></thead>
                 <tbody id="stats-body"></tbody>
             </table>
@@ -203,17 +203,17 @@
 <!-- ═══ Sync Status ═══ -->
 <section id="p-sync" class="pane">
     <div class="tc">
-        <div class="th"><h3>Last Sync per Instance</h3><button class="bte" data-export="sync" data-filename="sync_log">CSV</button></div>
+        <div class="th"><h3>Dernière Synchro</h3><button class="bte" data-export="sync" data-filename="sync_log">CSV</button></div>
         <div class="ts">
             <table>
                 <thead><tr>
                     <th data-col="0" data-table="sync">Instance</th>
                     <th data-col="1" data-table="sync">Login</th>
-                    <th data-col="2" data-table="sync">Status</th>
-                    <th data-col="3" data-table="sync" class="n">Found</th>
-                    <th data-col="4" data-table="sync" class="n">Upserted</th>
-                    <th data-col="5" data-table="sync" class="n">Duration</th>
-                    <th data-col="6" data-table="sync">Started</th>
+                    <th data-col="2" data-table="sync">Statut</th>
+                    <th data-col="3" data-table="sync" class="n">Trouvés</th>
+                    <th data-col="4" data-table="sync" class="n">Insérés</th>
+                    <th data-col="5" data-table="sync" class="n">Durée</th>
+                    <th data-col="6" data-table="sync">Début</th>
                 </tr></thead>
                 <tbody id="sync-body"></tbody>
             </table>

@@ -61,18 +61,18 @@ let filters = { account_id: '', symbol: '', type: '', is_open: '', date_from: ''
 
 function populateFilters() {
     document.querySelectorAll('.fb select[data-f="account_id"]').forEach(el => {
-        el.innerHTML = '<option value="">All Accounts</option>' +
+        el.innerHTML = '<option value="">Tous les comptes</option>' +
             STATE.accounts.map(a => `<option value="${a.id}">${a.instance_name}</option>`).join('');
     });
     document.querySelectorAll('.fb select[data-f="symbol"]').forEach(el => {
-        el.innerHTML = '<option value="">All Symbols</option>' +
+        el.innerHTML = '<option value="">Tous les symboles</option>' +
             STATE.symbols.map(s => `<option value="${s}">${s}</option>`).join('');
     });
     document.querySelectorAll('.fb select[data-f="type"]').forEach(el => {
-        el.innerHTML = '<option value="">All Types</option><option value="0">Buy</option><option value="1">Sell</option>';
+        el.innerHTML = '<option value="">Tous les types</option><option value="0">Achat</option><option value="1">Vente</option>';
     });
     document.querySelectorAll('.fb select[data-f="is_open"]').forEach(el => {
-        el.innerHTML = '<option value="">All</option><option value="true">Open</option><option value="false">Closed</option>';
+        el.innerHTML = '<option value="">Tous</option><option value="true">Ouvert</option><option value="false">Fermé</option>';
     });
 }
 
@@ -201,7 +201,7 @@ function renderClosedTrades(closed) {
         </tr>
     `).join('');
     $('hist-count').textContent = closed.length;
-    $('hist-total').textContent = `Showing ${Math.min(200, closed.length)} of ${closed.length}`;
+    $('hist-total').textContent = `Affichage de ${Math.min(200, closed.length)} sur ${closed.length}`;
 }
 
 function renderDailyPnl() {

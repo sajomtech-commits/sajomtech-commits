@@ -54,10 +54,25 @@ td.plus{color:var(--green)}td.minus{color:var(--red)}
 .badge-started{background:rgba(59,130,246,.15);color:var(--blue)}
 #toast{position:fixed;bottom:24px;right:24px;background:rgba(239,68,68,.95);color:#fff;padding:10px 18px;border-radius:var(--rs);font-size:.84rem;opacity:0;transform:translateY(16px);transition:all .25s;pointer-events:none;z-index:200}
 #toast.on{opacity:1;transform:translateY(0)}
-@media(max-width:640px){
-  .logo{font-size:1rem}.mg{grid-template-columns:repeat(2,1fr)}
-  .tabs{padding:10px 12px 0}.main{padding:10px}
-  table{font-size:.7rem}th,td{padding:5px 7px}
+@media(max-width:768px){
+  .header{padding:10px 14px}
+  .logo{font-size:1rem}
+  .tabs{padding:10px 12px 0;gap:0}
+  .tab{padding:8px 12px;font-size:.78rem}
+  .main{padding:10px 12px 30px}
+  .mg{grid-template-columns:repeat(2,1fr);gap:8px}
+  .mc{padding:10px}
+  .ml{font-size:.62rem}
+  .mv{font-size:1.1rem}
+  .fb{flex-wrap:wrap;gap:6px}
+  .fb label{width:calc(50% - 6px);font-size:.72rem}
+  .fb select,.fb input{font-size:.72rem;padding:5px 8px;width:100%}
+  .fb .bte{width:100%;margin-top:4px}
+  .th{padding:10px 12px;flex-wrap:wrap;gap:6px}
+  .th h3{font-size:.82rem}
+  table{font-size:.7rem}
+  th,td{padding:5px 7px}
+  .ts{overflow-x:auto;-webkit-overflow-scrolling:touch}
 }
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:0 0}
