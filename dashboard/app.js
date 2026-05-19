@@ -60,13 +60,20 @@ function showError(m) {
 let filters = { account_id: '', symbol: '', type: '', is_open: '', date_from: '', date_to: '', magic: '', search: '' };
 
 function populateFilters() {
-    const selA = $('f-account'), selS = $('f-symbol'), selT = $('f-type'), selO = $('f-open');
-    selA.innerHTML = '<option value="">All Accounts</option>' +
-        STATE.accounts.map(a => `<option value="${a.id}">${a.instance_name}</option>`).join('');
-    selS.innerHTML = '<option value="">All Symbols</option>' +
-        STATE.symbols.map(s => `<option value="${s}">${s}</option>`).join('');
-    selT.innerHTML = '<option value="">All Types</option><option value="0">Buy</option><option value="1">Sell</option>';
-    selO.innerHTML = '<option value="">All</option><option value="true">Open</option><option value="false">Closed</option>';
+    document.querySelectorAll('.fb select[data-f="account_id"]').forEach(el => {
+        el.innerHTML = '<option value="">All Accounts</option>' +
+            STATE.accounts.map(a => `<option value="${a.id}">${a.instance_name}</option>`).join('');
+    });
+    document.querySelectorAll('.fb select[data-f="symbol"]').forEach(el => {
+        el.innerHTML = '<option value="">All Symbols</option>' +
+            STATE.symbols.map(s => `<option value="${s}">${s}</option>`).join('');
+    });
+    document.querySelectorAll('.fb select[data-f="type"]').forEach(el => {
+        el.innerHTML = '<option value="">All Types</option><option value="0">Buy</option><option value="1">Sell</option>';
+    });
+    document.querySelectorAll('.fb select[data-f="is_open"]').forEach(el => {
+        el.innerHTML = '<option value="">All</option><option value="true">Open</option><option value="false">Closed</option>';
+    });
 }
 
 function getFilteredTrades() {
