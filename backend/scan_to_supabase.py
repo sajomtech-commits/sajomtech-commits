@@ -310,7 +310,7 @@ class MT5Scanner:
             "tp": pos.tp or 0,
             "profit": pos.profit,
             "swap": pos.swap or 0,
-            "commission": pos.commission or 0,
+            "commission": getattr(pos, 'commission', 0) or 0,
             "magic": pos.magic,
             "comment": pos.comment or "",
             "is_open": True,
