@@ -142,7 +142,7 @@ function renderMetrics() {
     if (dd.length) {
         const totalDD = dd.reduce((s, d) => s + (d.floating_pnl || 0), 0);
         $('m-dd').textContent = fn(totalDD);
-        $('m-dd').className = `mv ${pc(-totalDD)}`;
+        $('m-dd').className = `mv ${pc(totalDD)}`;
     } else {
         $('m-dd').textContent = '0.00';
     }
